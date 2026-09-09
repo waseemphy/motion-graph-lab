@@ -5,16 +5,16 @@ An interactive A-Level Physics tool for exploring uniformly accelerated motion.
 ## Features
 
 - Live displacement–time, velocity–time and acceleration–time graphs
-- Adjustable initial displacement, velocity, acceleration and duration
+- Adjustable initial velocity, acceleration and duration
 - Accelerating, braking and free-fall presets
 - Instant values, equations and motion interpretation
 - Responsive layout for desktop, tablet and mobile
 
 ## Physics model
 
-The simulator uses constant acceleration:
+Displacement is measured from the starting point. The simulator uses constant acceleration:
 
-- `s = s₀ + ut + ½at²`
+- `s = ut + ½at²`
 - `v = u + at`
 - `a = constant`
 
