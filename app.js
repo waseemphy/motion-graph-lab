@@ -1,10 +1,10 @@
-const ids = ["s0", "u", "a", "duration", "inspectTime"];
+const ids = ["u", "a", "duration", "inspectTime"];
 const el = Object.fromEntries(ids.map(id => [id, document.getElementById(id)]));
 
 const presets = {
-  accelerate: { s0: 0, u: 5, a: 2, duration: 8 },
-  brake: { s0: 0, u: 18, a: -3, duration: 10 },
-  freefall: { s0: 20, u: 0, a: -9.8, duration: 4 }
+  accelerate: { u: 5, a: 2, duration: 8 },
+  brake: { u: 18, a: -3, duration: 10 },
+  freefall: { u: 0, a: -9.8, duration: 4 }
 };
 
 const colors = { s: "#1b66ff", v: "#f97316", a: "#0891b2" };
@@ -20,10 +20,9 @@ function signed(value, suffix = "") {
 }
 
 function equationText() {
-  const s0 = n("s0"), u = n("u"), a = n("a");
+  const u = n("u"), a = n("a");
   const halfA = a / 2;
-  let s = `s = ${tidy(s0)}`;
-  if (s0 === 0) s = "s =";
+  let s = "s =";
   s += signed(u, "t") + signed(halfA, "t²");
   if (s === "s =") s += " 0";
   let v = `v = ${tidy(u)}` + signed(a, "t");
@@ -81,13 +80,12 @@ function describeMotion(u, a, t) {
 }
 
 function update() {
-  const s0 = n("s0"), u = n("u"), a = n("a"), d = n("duration");
+  const u = n("u"), a = n("a"), d = n("duration");
   el.inspectTime.max = d;
   if (n("inspectTime") > d) el.inspectTime.value = d / 2;
   const t = n("inspectTime");
-  const sFn = x => s0 + u * x + .5 * a * x * x;
+  const sFn = x => u * x + .5 * a * x * x;
   const vFn = x => u + a * x;
-  document.getElementById("s0Output").textContent = `${tidy(s0)} m`;
   document.getElementById("uOutput").textContent = `${tidy(u)} m s⁻¹`;
   document.getElementById("aOutput").textContent = `${tidy(a)} m s⁻²`;
   document.getElementById("durationOutput").textContent = `${tidy(d)} s`;
