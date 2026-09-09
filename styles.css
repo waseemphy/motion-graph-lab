@@ -74,7 +74,7 @@ main { width: min(1480px, 100%); margin: auto; padding: 28px clamp(18px, 4vw, 56
   font-size: .86rem;
 }
 .presets button:hover, .presets button:focus-visible { color: white; background: var(--blue); border-color: var(--blue); }
-.control-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; }
+.control-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
 .control { min-width: 0; }
 .control > span:first-child { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
 .control b { font-size: .92rem; }
