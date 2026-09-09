@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Interactive A-Level Physics simulator for displacement-time, velocity-time and acceleration-time graphs.">
+  <title>Motion Graph Lab</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-mark" aria-hidden="true">∫</div>
+    <div>
+      <p class="eyebrow">A-Level Physics</p>
+      <h1>Motion Graph Lab</h1>
+    </div>
+    <button id="resetButton" class="secondary-button" type="button">Reset</button>
+  </header>
+
+  <main>
+    <section class="control-panel" aria-labelledby="controls-title">
+      <div class="section-heading">
+        <div>
+          <p class="step-label">01 · Set the motion</p>
+          <h2 id="controls-title">Choose the initial conditions</h2>
+        </div>
+        <div class="presets" aria-label="Motion presets">
+          <button type="button" data-preset="accelerate">Accelerating</button>
+          <button type="button" data-preset="brake">Braking</button>
+          <button type="button" data-preset="freefall">Free fall</button>
+        </div>
+      </div>
+
+      <div class="control-grid">
+        <label class="control">
+          <span><b>Initial displacement</b><output id="s0Output">0 m</output></span>
+          <input id="s0" type="range" min="-20" max="20" step="1" value="0">
+          <span class="range-labels"><i>−20 m</i><i>+20 m</i></span>
+        </label>
+        <label class="control">
+          <span><b>Initial velocity, <em>u</em></b><output id="uOutput">5 m s⁻¹</output></span>
+          <input id="u" type="range" min="-20" max="20" step="0.5" value="5">
+          <span class="range-labels"><i>−20</i><i>+20 m s⁻¹</i></span>
+        </label>
+        <label class="control">
+          <span><b>Acceleration, <em>a</em></b><output id="aOutput">2 m s⁻²</output></span>
+          <input id="a" type="range" min="-10" max="10" step="0.1" value="2">
+          <span class="range-labels"><i>−10</i><i>+10 m s⁻²</i></span>
+        </label>
+        <label class="control">
+          <span><b>Total time</b><output id="durationOutput">8 s</output></span>
+          <input id="duration" type="range" min="2" max="20" step="1" value="8">
+          <span class="range-labels"><i>2 s</i><i>20 s</i></span>
+        </label>
+      </div>
+    </section>
+
+    <section class="equation-strip" aria-label="Current motion equations">
+      <div><span>Displacement</span><strong id="sEquation">s = 5t + t²</strong></div>
+      <div><span>Velocity</span><strong id="vEquation">v = 5 + 2t</strong></div>
+      <div><span>Acceleration</span><strong id="aEquation">a = 2</strong></div>
+    </section>
+
+    <section class="results" aria-labelledby="graphs-title">
+      <div class="section-heading graph-heading">
+        <div>
+          <p class="step-label">02 · Read the graphs</p>
+          <h2 id="graphs-title">Connected representations</h2>
+        </div>
+        <label class="time-control">
+          <span>Inspect at <output id="timeOutput">4.0 s</output></span>
+          <input id="inspectTime" type="range" min="0" max="8" step="0.1" value="4">
+        </label>
+      </div>
+
+      <div class="graph-grid">
+        <article class="graph-card">
+          <div class="card-title"><span class="dot displacement"></span><h3>Displacement–time</h3><b id="sValue">36.0 m</b></div>
+          <svg id="sGraph" role="img" aria-label="Displacement against time graph"></svg>
+          <p class="graph-note">Gradient = velocity</p>
+        </article>
+        <article class="graph-card">
+          <div class="card-title"><span class="dot velocity"></span><h3>Velocity–time</h3><b id="vValue">13.0 m s⁻¹</b></div>
+          <svg id="vGraph" role="img" aria-label="Velocity against time graph"></svg>
+          <p class="graph-note">Gradient = acceleration · Area = displacement</p>
+        </article>
+        <article class="graph-card">
+          <div class="card-title"><span class="dot acceleration"></span><h3>Acceleration–time</h3><b id="aValue">2.0 m s⁻²</b></div>
+          <svg id="aGraph" role="img" aria-label="Acceleration against time graph"></svg>
+          <p class="graph-note">Area = change in velocity</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="insight-panel" aria-labelledby="insight-title">
+      <div>
+        <p class="step-label">03 · Interpret</p>
+        <h2 id="insight-title">What is happening?</h2>
+      </div>
+      <p id="motionInsight">The object is moving in the positive direction and speeding up because velocity and acceleration have the same sign.</p>
+      <div class="key-values">
+        <div><span>Final displacement</span><strong id="finalS">104.0 m</strong></div>
+        <div><span>Final velocity</span><strong id="finalV">21.0 m s⁻¹</strong></div>
+        <div><span>Direction change</span><strong id="turningPoint">None</strong></div>
+      </div>
+    </section>
+  </main>
+
+  <footer><span>Motion Graph Lab</span><span>Uses constant acceleration: s = s₀ + ut + ½at²</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
