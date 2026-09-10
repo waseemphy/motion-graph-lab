@@ -18,8 +18,18 @@ Displacement is measured from the starting point. The simulator uses constant ac
 - `v = u + at`
 - `a = constant`
 
+## Online tutoring
+
+Online tutoring is available with **Dr. M. Waseem** for:
+
+- IGCSE Physics
+- A-Level Physics
+- GCSE Mathematics
+
+Contact: [waseem.tutor@outlook.com](mailto:waseem.tutor@outlook.com)
+
 ## Use
 
 Open `index.html` in a browser, or enable GitHub Pages for this repository.
 
-Copyright © 2026 Muhammad Waseem Akram. All rights reserved.
+Copyright © 2026 Dr. M. Waseem. All rights reserved.
